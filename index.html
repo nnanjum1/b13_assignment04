@@ -18,15 +18,15 @@
         <div class="header-card grid grid-cols-3 gap-4 ">
             <div class="total-card p-4 rounded-lg border-1 border-gray-200 bg-white">
                 <p class="text-[#323B49] font-medium">Total</p>
-                <p id="total" class="text-4xl font-bold text-[#002C5C]">0</p>
+                <p id="totalCount" class="text-4xl font-bold text-[#002C5C]">0</p>
             </div>
             <div class="interview-card p-4 rounded-lg border-1 border-gray-200 bg-white">
                 <p class="text-[#323B49] font-medium">Interview</p>
-                <p id="total" class="text-[24px] font-bold text-green-400">0</p>
+                <p id="interviewCount" class="text-[24px] font-bold text-green-400">0</p>
             </div>
             <div class="reject-card p-4 rounded-lg border-1 border-gray-200 bg-white">
                 <p class="text-[#323B49] font-medium">Rejected</p>
-                <p id="total" class="text-[24px] font-bold text-red-400">0</p>
+                <p id="rejectedCount" class="text-[24px] font-bold text-red-400">0</p>
             </div>
         </div>
     </header>
@@ -34,39 +34,46 @@
     <main class="w-full md:w-[70%] mx-2 md:mx-auto">
         <div class="flex flex-wrap justify-between mb-6">
             <p class="text-2xl font-bold text-[#002C5C]">Available Jobs</p>
-            <p class="text-gray-400 text-[16px] font-medium"> <span class="job number">8 </span> jobs</p>
+            <p class="text-gray-400 text-[16px] font-medium"> <span id="job-number">0 </span> jobs</p>
         </div>
         <div class=" w-full md:w-[70%] flex flex-wrap gap-2">
-            <button class="bg-blue-700 text-white border-1 border-gray-200 px-8 py-2 rounded-md"
+            <button onclick="toggleStyle('all-btn')"
+                class="bg-blue-700  text-[12px] font-semibold  text-white border-1 border-gray-200 px-8 py-2 rounded-md"
                 id="all-btn">All</button>
-            <button class="bg-white border-1 border-gray-200 px-5 py-2  rounded-md"
+            <button onclick="toggleStyle('interview-btn')"
+                class="bg-white text-gray-600 text-[12px] font-medium  border-1 border-gray-200 px-5 py-2  rounded-md"
                 id="interview-btn">Interview</button>
-            <button class="bg-white border-1 border-gray-200 px-5 py-2  rounded-md" id="rejected-btn">Rejected</button>
+            <button onclick="toggleStyle('rejected-btn')"
+                class="bg-white  text-gray-600 text-[12px] font-medium  border-1 border-gray-200 px-5 py-2  rounded-md"
+                id="rejected-btn">Rejected</button>
         </div>
+        <section id="filtered-section" class="hidden">
 
-        <div class="all-card mb-15">
+        </section>
+        <section id="all-cards" class=" mb-15">
             <div class="card border-1 border-slate-200 rounded-md p-6 mt-4 space-y-5">
                 <div class="flex justify-between">
                     <div>
                         <p class="card-title font-bold text-[#002C5C]">Mobile First Corp</p>
-                        <p class="text-gray-400 text-[16px] ">React Native Developer</p>
+                        <p class=" title-text text-gray-400 text-[16px] ">React Native Developer</p>
                     </div>
                     <div class="py-2">
-                        <button class=" py-[9px] px-[10px] border-1 border-gray-200 rounded-full"><i
+                        <button class="dlt-btn py-[9px] px-[10px] border-1 border-gray-200 rounded-full"><i
                                 class="fa-regular fa-trash-can"></i></button>
                     </div>
                 </div>
                 <div>
-                    <p class="text-gray-400">Remote
+                    <p class=" job-desc text-gray-400">Remote
                         •
                         Full-time
                         •
                         $130,000 - $175,000</p>
                 </div>
                 <div>
-                    <p class=" inline-block text-[#002C5C] font-medium rounded-md px-3 py-2 bg-gray-200 status">NOT
+                    <p class=" status inline-block text-[#002C5C] font-medium rounded-md px-3 py-2 bg-gray-200 ">NOT
                         APPLIED</p>
-                    <p class="text-[#323B49]">Build cross-platform mobile applications using React Native. Work on
+                    <p class="description text-[#323B49]">Build cross-platform mobile applications using React Native.
+                        Work on
                         products used by millions of users worldwide.</p>
                 </div>
 
@@ -81,24 +88,26 @@
                 <div class="flex justify-between">
                     <div>
                         <p class="card-title font-bold text-[#002C5C]">WebFlow Agency</p>
-                        <p class="text-gray-400 text-[16px] ">Web Designer & Developer</p>
+                        <p class="title-text text-gray-400 text-[16px] ">Web Designer & Developer</p>
                     </div>
                     <div class="py-2">
-                        <button class=" py-[9px] px-[10px] border-1 border-gray-200 rounded-full"><i
+                        <button class="dlt-btn py-[9px] px-[10px] border-1 border-gray-200 rounded-full"><i
                                 class="fa-regular fa-trash-can"></i></button>
                     </div>
                 </div>
                 <div>
-                    <p class="text-gray-400">Los Angeles, CA
+                    <p class="job-desc text-gray-400">Los Angeles, CA
                         •
                         Part-time
                         •
                         $80,000 - $120,000</p>
                 </div>
                 <div>
-                    <p class=" inline-block text-[#002C5C] font-medium rounded-md px-3 py-2 bg-gray-200 status">NOT
+                    <p class=" inline-block text-[#002C5C] font-medium rounded-md px-3 py-2 bg-gray-200 status">
+                        NOT
                         APPLIED</p>
-                    <p class="text-[#323B49]">Create stunning web experiences for high-profile clients. Must have
+                    <p class=" description text-[#323B49]">Create stunning web experiences for high-profile clients.
+                        Must have
                         portfolio and experience with modern web design trends.</p>
                 </div>
 
@@ -113,15 +122,15 @@
                 <div class="flex justify-between">
                     <div>
                         <p class="card-title font-bold text-[#002C5C]">DataViz Solutions</p>
-                        <p class="text-gray-400 text-[16px] ">Data Visualization Specialist</p>
+                        <p class=" title-text text-gray-400 text-[16px] ">Data Visualization Specialist</p>
                     </div>
                     <div class="py-2">
-                        <button class=" py-[9px] px-[10px] border-1 border-gray-200 rounded-full"><i
+                        <button class=" dlt-btn py-[9px] px-[10px] border-1 border-gray-200 rounded-full"><i
                                 class="fa-regular fa-trash-can"></i></button>
                     </div>
                 </div>
                 <div>
-                    <p class="text-gray-400">Boston, MA
+                    <p class=" job-desc text-gray-400">Boston, MA
                         •
                         Full-time
                         •
@@ -130,7 +139,8 @@
                 <div>
                     <p class=" inline-block text-[#002C5C] font-medium rounded-md px-3 py-2 bg-gray-200 status">NOT
                         APPLIED</p>
-                    <p class="text-[#323B49]">Transform complex data into compelling visualizations. Required skills:
+                    <p class=" description text-[#323B49]">Transform complex data into compelling visualizations.
+                        Required skills:
                         D3.js, React, and strong analytical thinking.
                     </p>
                 </div>
@@ -146,15 +156,15 @@
                 <div class="flex justify-between">
                     <div>
                         <p class="card-title font-bold text-[#002C5C]">CloudFirst Inc</p>
-                        <p class="text-gray-400 text-[16px] ">Backend Developer</p>
+                        <p class="title-text text-gray-400 text-[16px] ">Backend Developer</p>
                     </div>
                     <div class="py-2">
-                        <button class=" py-[9px] px-[10px] border-1 border-gray-200 rounded-full"><i
+                        <button class="dlt-btn py-[9px] px-[10px] border-1 border-gray-200 rounded-full"><i
                                 class="fa-regular fa-trash-can"></i></button>
                     </div>
                 </div>
                 <div>
-                    <p class="text-gray-400">Seattle, WA
+                    <p class="job-desc text-gray-400">Seattle, WA
                         •
                         Full-time
                         •
@@ -163,7 +173,8 @@
                 <div>
                     <p class=" inline-block text-[#002C5C] font-medium rounded-md px-3 py-2 bg-gray-200 status">NOT
                         APPLIED</p>
-                    <p class="text-[#323B49]">Design and maintain scalable backend systems using Python and AWS. Work
+                    <p class=" description text-[#323B49]">Design and maintain scalable backend systems using Python and
+                        AWS. Work
                         with modern DevOps practices and cloud infrastructure.
                     </p>
                 </div>
@@ -179,24 +190,25 @@
                 <div class="flex justify-between">
                     <div>
                         <p class="card-title font-bold text-[#002C5C]">Innovation Labs</p>
-                        <p class="text-gray-400 text-[16px] ">UI/UX Engineer</p>
+                        <p class=" title-text text-gray-400 text-[16px] ">UI/UX Engineer</p>
                     </div>
                     <div class="py-2">
-                        <button class=" py-[9px] px-[10px] border-1 border-gray-200 rounded-full"><i
+                        <button class="dlt-btn py-[9px] px-[10px] border-1 border-gray-200 rounded-full"><i
                                 class="fa-regular fa-trash-can"></i></button>
                     </div>
                 </div>
                 <div>
-                    <p class="text-gray-400">Austin, TX
+                    <p class="job-desc text-gray-400">Austin, TX
                         •
                         Full-time
                         •
                         $110,000 - $150,000</p>
                 </div>
                 <div>
-                    <p class=" inline-block text-[#002C5C] rounded-md font-medium px-3 py-2 bg-gray-200 status">NOT
+                    <p class="inline-block text-[#002C5C] rounded-md font-medium px-3 py-2 bg-gray-200 status">NOT
                         APPLIED</p>
-                    <p class="text-[#323B49]">Create beautiful and functional user interfaces for our suite of products.
+                    <p class=" description text-[#323B49]">Create beautiful and functional user interfaces for our suite
+                        of products.
                         Strong design skills and frontend development expertise required.
                     </p>
                 </div>
@@ -212,15 +224,15 @@
                 <div class="flex justify-between">
                     <div>
                         <p class="card-title font-bold text-[#002C5C]">MegaCorp Solutions</p>
-                        <p class="text-gray-400 text-[16px] ">JavaScript Developer</p>
+                        <p class="title-text text-gray-400 text-[16px] ">JavaScript Developer</p>
                     </div>
                     <div class="py-2">
-                        <button class=" py-[9px] px-[10px] border-1 border-gray-200 rounded-full"><i
+                        <button class="dlt-btn py-[9px] px-[10px] border-1 border-gray-200 rounded-full"><i
                                 class="fa-regular fa-trash-can"></i></button>
                     </div>
                 </div>
                 <div>
-                    <p class="text-gray-400">New York, NY
+                    <p class=" job-desc text-gray-400">New York, NY
                         •
                         Full-time
                         •
@@ -229,7 +241,8 @@
                 <div>
                     <p class=" inline-block text-[#002C5C] font-medium rounded-md px-3 py-2 bg-gray-200 status">NOT
                         APPLIED</p>
-                    <p class="text-[#323B49]">Build enterprise applications with JavaScript and modern frameworks. We
+                    <p class=" description text-[#323B49]">Build enterprise applications with JavaScript and modern
+                        frameworks. We
                         offer competitive compensation, health insurance, and professional development opportunities.
                     </p>
                 </div>
@@ -245,15 +258,15 @@
                 <div class="flex justify-between">
                     <div>
                         <p class="card-title font-bold text-[#002C5C]">StartupXYZ</p>
-                        <p class="text-gray-400 text-[16px] ">Full Stack Engineer</p>
+                        <p class=" title-text text-gray-400 text-[16px] ">Full Stack Engineer</p>
                     </div>
                     <div class="py-2">
-                        <button class=" py-[9px] px-[10px] border-1 border-gray-200 rounded-full"><i
+                        <button class="dlt-btn py-[9px] px-[10px] border-1 border-gray-200 rounded-full"><i
                                 class="fa-regular fa-trash-can"></i></button>
                     </div>
                 </div>
                 <div>
-                    <p class="text-gray-400">Remote
+                    <p class=" job-desc text-gray-400">Remote
                         •
                         Full-time
                         •
@@ -262,7 +275,8 @@
                 <div>
                     <p class=" inline-block text-[#002C5C] font-medium rounded-md px-3 py-2 bg-gray-200 status">NOT
                         APPLIED</p>
-                    <p class="text-[#323B49]">Join our fast-growing startup and work on our core platform. Experience
+                    <p class="description text-[#323B49]">Join our fast-growing startup and work on our core platform.
+                        Experience
                         with Node.js and React required. Great benefits and equity package included.
                     </p>
                 </div>
@@ -278,15 +292,15 @@
                 <div class="flex justify-between">
                     <div>
                         <p class="card-title font-bold text-[#002C5C]">TechCorp Industries</p>
-                        <p class="text-gray-400 text-[16px] ">Senior Frontend Developer</p>
+                        <p class="title-text text-gray-400 text-[16px] ">Senior Frontend Developer</p>
                     </div>
                     <div class="my-2">
-                        <button class=" py-[9px] px-[10px] border-1 border-gray-200 rounded-full"><i
+                        <button class="dlt-btn py-[9px] px-[10px] border-1 border-gray-200 rounded-full"><i
                                 class="fa-regular fa-trash-can"></i></button>
                     </div>
                 </div>
                 <div>
-                    <p class="text-gray-400">San Francisco, CA
+                    <p class="job-desc text-gray-400">San Francisco, CA
                         •
                         Full-time
                         •
@@ -295,7 +309,8 @@
                 <div>
                     <p class=" inline-block text-[#002C5C] font-medium px-3 rounded-md py-2 bg-gray-200 status">NOT
                         APPLIED</p>
-                    <p class="text-[#323B49]">We are looking for an experienced Frontend Developer to build scalable web
+                    <p class="description text-[#323B49]">We are looking for an experienced Frontend Developer to build
+                        scalable web
                         applications using React and TypeScript. You will work with a talented team on cutting-edge
                         projects.
                     </p>
@@ -312,8 +327,11 @@
 
 
 
-        </div>
+        </section>
+
     </main>
+
+    <script src="script.js"></script>
 </body>
 
 </html>
