@@ -51,7 +51,7 @@ function checkNoJob() {
         if (interview === 0) {
             filterSection.classList.remove("hidden");
             filterSection.innerHTML = `
-                <div class="w-full md:w-[70%] flex flex-col items-center justify-center  text-center mx-auto py-[111px] ">
+                <div class="flex flex-col border-1 border-slate-200 rounded-md items-center justify-center  text-center mt-4 mx-auto py-[111px] ">
                 <img class="w-[100px] h-[100px] mb-5 " src="jobs.png" alt="">
                 <p class="font-semibold text-6 text-[#002C5C]">No jobs available</p>
                 <p class="text-4 text-gray-500">Check back soon for new job opportunities</p>
@@ -63,7 +63,7 @@ function checkNoJob() {
         if (rejected === 0) {
             filterSection.classList.remove("hidden");
             filterSection.innerHTML = `
-                <div class="w-full md:w-[70%] flex flex-col items-center justify-center  text-center mx-auto py-[111px] ">
+                <div class="flex flex-col border-1 border-slate-200 rounded-md items-center justify-center  text-center mt-4 mx-auto py-[111px] ">
                 <img class="w-[100px] h-[100px] mb-5 " src="jobs.png" alt="">
                 <p class="font-semibold text-6 text-[#002C5C]">No jobs available</p>
                 <p class="text-4 text-gray-500">Check back soon for new job opportunities</p>
