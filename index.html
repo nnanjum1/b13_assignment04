@@ -10,6 +10,16 @@
         integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            font-family: "Geist", sans-serif;
+        }
+    </style>
+
 </head>
 
 <body class="bg-slate-50">
@@ -18,7 +28,7 @@
         <div class="header-card grid grid-cols-3 gap-4 ">
             <div class="total-card p-4 rounded-lg border-1 border-gray-200 bg-white">
                 <p class="text-[#323B49] font-medium">Total</p>
-                <p id="totalCount" class="text-4xl font-bold text-[#002C5C]">0</p>
+                <p id="totalCount" class="text-[24px] font-bold text-[#002C5C]">0</p>
             </div>
             <div class="interview-card p-4 rounded-lg border-1 border-gray-200 bg-white">
                 <p class="text-[#323B49] font-medium">Interview</p>
@@ -54,6 +64,7 @@
                 <p class="text-4 text-gray-500">Check back soon for new job opportunities</p>
             </div>
         </section>
+
         <section id="all-cards" class=" mb-15">
             <div class="card border-1 border-slate-200 rounded-md p-6 mt-4 space-y-5">
                 <div class="flex justify-between">
@@ -330,7 +341,36 @@
 
 
 
+            <div class="card border-1 border-slate-200 rounded-md p-6 mt-4 space-y-5">
+                <div class="flex justify-between">
+                    <div>
+                        <p class="card-title font-bold text-[#002C5C]">Nexus Fintech Solutions</p>
+                        <p class="title-text text-gray-400 text-[16px] ">Backend Software Engineer</p>
+                    </div>
+                    <div class="my-2">
+                        <button class="dlt-btn py-[9px] px-[10px] border-1 border-gray-200 rounded-full"><i
+                                class="fa-regular fa-trash-can"></i></button>
+                    </div>
+                </div>
+                <div>
+                    <p class="job-desc text-gray-400">Austin, TX • Remote Friendly • $145,000 - $190,000</p>
+                </div>
+                <div>
+                    <p class=" inline-block text-[#002C5C] font-medium px-3 rounded-md py-2 bg-gray-200 status">NOT
+                        APPLIED</p>
+                    <p class="description text-[#323B49]">Join our core infrastructure team to design and implement
+                        secure, high-throughput payment APIs.
+                        You will be working primarily with Node.js, PostgreSQL, and AWS cloud services.
+                    </p>
+                </div>
 
+                <div class="flex gap-2">
+                    <button
+                        class="btn-interview px-3 py-2 bg-white border-1 font-semibold rounded-md border-green-400 text-green-400">INTERVIEW</button>
+                    <button
+                        class="btn-reject px-3 py-2 bg-white border-1 font-semibold rounded-md border-red-400 text-red-400">REJECTED</button>
+                </div>
+            </div>
         </section>
 
     </main>
