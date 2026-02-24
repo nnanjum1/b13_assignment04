@@ -33,6 +33,47 @@ function calculateCount() {
     }
 }
 
+
+function checkNoJob() {
+    const total = allCard.children.length;
+    const interview = interviewList.length;
+    const rejected = rejectedList.length;
+    if (currentStatus === "all-btn") {
+        if (total === 0) {
+            filterSection.classList.remove("hidden");
+            allCard.classList.add("hidden");
+        } else {
+            filterSection.classList.add("hidden");
+            allCard.classList.remove("hidden");
+        }
+    }
+    if (currentStatus === "interview-btn") {
+        if (interview === 0) {
+            filterSection.classList.remove("hidden");
+            filterSection.innerHTML = `
+                <div class="w-full md:w-[70%] flex flex-col items-center justify-center  text-center mx-auto py-[111px] ">
+                <img class="w-[100px] h-[100px] mb-5 " src="jobs.png" alt="">
+                <p class="font-semibold text-6 text-[#002C5C]">No jobs available</p>
+                <p class="text-4 text-gray-500">Check back soon for new job opportunities</p>
+            </div>`;
+        }
+    }
+
+    if (currentStatus === "rejected-btn") {
+        if (rejected === 0) {
+            filterSection.classList.remove("hidden");
+            filterSection.innerHTML = `
+                <div class="w-full md:w-[70%] flex flex-col items-center justify-center  text-center mx-auto py-[111px] ">
+                <img class="w-[100px] h-[100px] mb-5 " src="jobs.png" alt="">
+                <p class="font-semibold text-6 text-[#002C5C]">No jobs available</p>
+                <p class="text-4 text-gray-500">Check back soon for new job opportunities</p>
+            </div>`;
+        }
+    }
+}
+
+checkNoJob();
+
 calculateCount();
 
 function toggleStyle(id) {
@@ -81,7 +122,7 @@ mainContainer.addEventListener('click', function (event) {
 
         interviewList = interviewList.filter(item => item.cardName !== cardName);
         rejectedList = rejectedList.filter(item => item.cardName !== cardName);
-
+        checkNoJob();
 
         const allCardNode = Array.from(allCard.children).find(c =>
             c.querySelector(".card-title").innerText === cardName
@@ -123,6 +164,7 @@ mainContainer.addEventListener('click', function (event) {
 
         calculateCount();
 
+
     } else if (event.target.classList.contains('btn-reject')) {
         const parentNode = event.target.closest('.card');
         parentNode.querySelector('.status').innerText = 'REJECTED';
@@ -154,12 +196,14 @@ mainContainer.addEventListener('click', function (event) {
 
         calculateCount()
 
+
     }
 
 })
 
 function renderInterview() {
-    filterSection.innerHTML = ''
+    filterSection.innerHTML = '';
+    checkNoJob();
     for (let inter of interviewList) {
         console.log(inter);
 
@@ -202,7 +246,8 @@ function renderInterview() {
 
 function renderRejected() {
 
-    filterSection.innerHTML = ''
+    filterSection.innerHTML = '';
+    checkNoJob();
 
     for (let reject of rejectedList) {
         console.log(reject);
