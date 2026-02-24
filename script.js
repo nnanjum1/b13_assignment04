@@ -138,7 +138,7 @@ mainContainer.addEventListener('click', function (event) {
         const parentNode = event.target.closest('.card');
 
         parentNode.querySelector('.status').innerText = 'INTERVIEW';
-        parentNode.querySelector('.status').className = 'status inline-block px-3 py-2 bg-white border-1 font-semibold rounded-md border-green-400 text-green-400';
+        parentNode.querySelector('.status').className = 'status inline-block px-3 py-2 bg-white border-1 font-semibold rounded-md border-green-400 text-green-400 mb-2';
 
 
         const cardInfo = {
@@ -168,7 +168,7 @@ mainContainer.addEventListener('click', function (event) {
     } else if (event.target.classList.contains('btn-reject')) {
         const parentNode = event.target.closest('.card');
         parentNode.querySelector('.status').innerText = 'REJECTED';
-        parentNode.querySelector('.status').className = 'status inline-block px-3 py-2 bg-white border-1 font-semibold rounded-md border-red-400 text-red-400';
+        parentNode.querySelector('.status').className = 'status inline-block px-3 py-2 bg-white border-1 font-semibold rounded-md border-red-400 text-red-400 mb-2';
 
 
         const cardInfo = {
@@ -224,7 +224,7 @@ function renderInterview() {
                     <p class=" job-desc text-gray-400">${inter.jobDesc}</p>
                 </div>
                 <div>
-                    <p class="status inline-block px-3 py-2 bg-white border-1 font-semibold rounded-md border-green-400 text-green-400">${inter.status}</p>
+                    <p class="status inline-block px-3 py-2 bg-white border-1 font-semibold rounded-md border-green-400 text-green-400 mb-2">${inter.status}</p>
                     <p class="description text-[#323B49]">${inter.description}</p>
                 </div>
 
@@ -268,7 +268,7 @@ function renderRejected() {
                     <p class=" job-desc text-gray-400">${reject.jobDesc}</p>
                 </div>
                 <div>
-                    <p class=" status inline-block px-3 py-2 bg-white border-1 font-semibold rounded-md border-red-400 text-red-400 ">${reject.status}</p>
+                    <p class=" status inline-block px-3 py-2 bg-white border-1 font-semibold rounded-md border-red-400 text-red-400 mb-2 ">${reject.status}</p>
                     <p class="description text-[#323B49]">${reject.description}</p>
                 </div>
 
