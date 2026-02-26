@@ -41,7 +41,12 @@ function checkNoJob() {
     if (currentStatus === "all-btn") {
         if (total === 0) {
             filterSection.classList.remove("hidden");
-            allCard.classList.add("hidden");
+            filterSection.innerHTML = `
+                <div class="flex flex-col border-1 border-slate-200 rounded-md items-center justify-center  text-center mt-4 mx-auto py-[111px] ">
+                <img class="w-[100px] h-[100px] mb-5 " src="jobs.png" alt="">
+                <p class="font-semibold text-6 text-[#002C5C]">No jobs available</p>
+                <p class="text-4 text-gray-500">Check back soon for new job opportunities</p>
+            </div>`;
         } else {
             filterSection.classList.add("hidden");
             allCard.classList.remove("hidden");
@@ -98,7 +103,8 @@ function toggleStyle(id) {
         renderInterview()
     } else if (id == 'all-btn') {
         allCard.classList.remove('hidden');
-        filterSection.classList.add('hidden')
+        filterSection.classList.add('hidden');
+        checkNoJob();
     } else if (id == 'rejected-btn') {
         allCard.classList.add('hidden');
         filterSection.classList.remove('hidden')
@@ -137,9 +143,12 @@ mainContainer.addEventListener('click', function (event) {
     if (event.target.classList.contains('btn-interview')) {
         const parentNode = event.target.closest('.card');
 
-        parentNode.querySelector('.status').innerText = 'INTERVIEW';
-        parentNode.querySelector('.status').className = 'status inline-block px-3 py-2 bg-white border-1 font-semibold rounded-md border-green-400 text-green-400 mb-2';
-
+        const allCards = Array.from(allCard.children).find(c => c.querySelector(".card-title").innerText === cardName);
+        if (allCards) {
+            const cardStatus = allCards.querySelector('.status');
+            cardStatus.innerText = 'INTERVIEW';
+            cardStatus.className = 'status inline-block px-3 py-2 bg-white border-1 font-semibold rounded-md border-green-400 text-green-400 mb-2';
+        }
 
         const cardInfo = {
             cardName: parentNode.querySelector(".card-title").innerText,
@@ -167,8 +176,13 @@ mainContainer.addEventListener('click', function (event) {
 
     } else if (event.target.classList.contains('btn-reject')) {
         const parentNode = event.target.closest('.card');
-        parentNode.querySelector('.status').innerText = 'REJECTED';
-        parentNode.querySelector('.status').className = 'status inline-block px-3 py-2 bg-white border-1 font-semibold rounded-md border-red-400 text-red-400 mb-2';
+
+        const allCards = Array.from(allCard.children).find(c => c.querySelector(".card-title").innerText === cardName);
+        if (allCards) {
+            const cardStatus = allCards.querySelector('.status');
+            cardStatus.innerText = 'REJECTED';
+            cardStatus.className = 'status inline-block px-3 py-2 bg-white border-1 font-semibold rounded-md border-red-400 text-red-400 mb-2';
+        }
 
 
         const cardInfo = {
@@ -277,9 +291,8 @@ function renderRejected() {
                         class="btn-interview px-3 py-2 bg-white border-1 font-semibold rounded-md border-green-400 text-green-400">INTERVIEW</button>
                     <button
                         class="btn-reject px-3 py-2 bg-white border-1 font-semibold rounded-md border-red-400 text-red-400">REJECTED</button>
-                </div>
-        
-        `
+                </div>  
+                `
         filterSection.appendChild(div)
 
     }
